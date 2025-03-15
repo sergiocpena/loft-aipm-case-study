@@ -19,7 +19,7 @@ An Agentic Workflow for Real Estate Financing.
    TWILIO_AUTH_TOKEN=your_auth_token
    TWILIO_WHATSAPP_NUMBER=your_twilio_whatsapp_number
    ```
-4. Run the application: `python test-wpp.py`
+4. Run the application: `python main.py`
 5. Use ngrok to expose your local server: `ngrok http 5000`
 6. Configure your Twilio webhook URL to point to your ngrok URL + `/receive_whatsapp`
 
