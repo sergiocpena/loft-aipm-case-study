@@ -2,7 +2,9 @@ from flask import Flask, request, Response
 from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse
 import os
+
 from agents import Agent, Runner, function_tool, RunConfig, trace
+
 import os
 from pathlib import Path
 import json
@@ -12,6 +14,14 @@ import sys
 import uuid
 from dotenv import load_dotenv
 
+print("Python path:", sys.path)
+print("Trying to import agents...")
+try:
+    from agents import Agent, Runner, function_tool, RunConfig, trace
+    print("Successfully imported agents")
+except ImportError as e:
+    print(f"Failed to import agents: {e}")
+    raise
 
 # Initialize Flask app
 app = Flask(__name__)
