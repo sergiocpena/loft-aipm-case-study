@@ -30,13 +30,6 @@ def create_app():
     # Register the health check blueprint
     app.register_blueprint(health_bp)
     
-    # Initialize the ping service when the app starts
-    @app.before_serving  # or @app.before_first_request for Flask 1.x
-    def start_ping_service():
-        init_ping_service(interval_minutes=15)
-    
-    # Other app configuration...
-    
     return app
 
 # Create the app
@@ -44,6 +37,14 @@ app = create_app()
 
 # Load environment variables from .env file
 load_dotenv()
+
+# Initialize the ping service directly
+# This will run when the module is loaded by Gunicorn
+try:
+    init_ping_service(interval_minutes=15)
+    print("Ping service initialized")
+except Exception as e:
+    print(f"Error initializing ping service: {str(e)}")
 
 # Initialize result as a global variable
 result = None
