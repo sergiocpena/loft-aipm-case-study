@@ -1,0 +1,62 @@
+{
+  "test_cases": [
+    {
+      "name": "Simulation request - direct",
+      "input": "Quero simular um financiamento",
+      "expected_agent": "simulator agent"
+    },
+    {
+      "name": "Simulation request - with property value",
+      "input": "Quanto ficaria o financiamento de um imóvel de R$ 500.000?",
+      "expected_agent": "simulator agent"
+    },
+    {
+      "name": "Simulation request - apartment",
+      "input": "Preciso de uma simulação para comprar um apartamento",
+      "expected_agent": "simulator agent"
+    },
+    {
+      "name": "Application request - direct",
+      "input": "Quero solicitar um financiamento",
+      "expected_agent": "application agent"
+    },
+    {
+      "name": "Application request - how to",
+      "input": "Como faço para dar entrada em um financiamento?",
+      "expected_agent": "application agent"
+    },
+    {
+      "name": "Application request - need financing",
+      "input": "Preciso financiar um imóvel",
+      "expected_agent": "application agent"
+    },
+    {
+      "name": "Question - documents",
+      "input": "Quais são os documentos necessários?",
+      "expected_agent": "questions agent"
+    },
+    {
+      "name": "Question - business hours",
+      "input": "Qual é o horário de atendimento?",
+      "expected_agent": "questions agent"
+    },
+    {
+      "name": "Question - about Loft",
+      "input": "Quem é a Loft?",
+      "expected_agent": "questions agent"
+    },
+    {
+      "name": "Question - financial term",
+      "input": "O que é CET?",
+      "expected_agent": "questions agent"
+    },
+    {
+      "name": "Ambiguous request - should ask for clarification",
+      "input": "Quero um imóvel"
+    },
+    {
+      "name": "Greeting - should respond and ask how to help",
+      "input": "Olá, bom dia!"
+    }
+  ]
+} 

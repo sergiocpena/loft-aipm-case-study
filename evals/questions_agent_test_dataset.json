@@ -1,0 +1,74 @@
+{
+  "test_cases": [
+    {
+      "name": "Basic real estate question",
+      "input": "Quais são os documentos necessários para comprar um imóvel no Brasil?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "Os documentos necessários para comprar um imóvel no Brasil são: CPF, RG, Comprovante de renda, Comprovante de endereço, Comprovante de pagamento de IPTU e Comprovante de pagamento de Condomínio."
+    },
+    {
+      "name": "Market trends question",
+      "input": "Como estão os preços dos imóveis em São Paulo atualmente?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "Os preços dos imóveis em São Paulo estão em alta devido à alta demanda e à escassez de propriedades disponíveis."
+    },
+    {
+      "name": "Financial term explanation",
+      "input": "O que significa CET em financiamento imobiliário?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "O CET é o Custo Efetivo Total, que inclui todas as taxas e custos associados ao financiamento imobiliário."
+    },
+    {
+      "name": "About Loft",
+      "input": "Quem é a Loft e o que ela faz?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "A Loft é uma empresa de imobiliária que oferece serviços de compra, venda e aluguel de imóveis."
+    },
+    {
+      "name": "Financing options",
+      "input": "Quais são as opções de financiamento disponíveis no Brasil?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "As opções de financiamento disponíveis no Brasil incluem: Financiamento Imobiliário, Financiamento de Consumo, Financiamento de Veículos e Financiamento de Imóveis Comerciais."
+    },
+    {
+      "name": "Buying vs renting",
+      "input": "É melhor comprar ou alugar um imóvel no Brasil hoje?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "A decisão entre comprar ou alugar um imóvel depende de diversos fatores, como localização, preço, condições financeiras e objetivos do comprador."
+    },
+    {
+      "name": "Property tax question",
+      "input": "Como funciona o IPTU no Brasil?",
+      "expected_language": "pt-br", 
+      "expected_emoji": true,
+      "expected_answer": "O IPTU é um imposto municipal que incide sobre a propriedade imobiliária, sendo cobrado anualmente pelas prefeituras."
+    },
+    {
+      "name": "Real estate investment",
+      "input": "Vale a pena investir em imóveis no Brasil em 2023?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "Investir em imóveis no Brasil em 2023 pode ser uma boa opção, considerando a estabilidade econômica e a demanda por propriedades residenciais."
+    },
+    {
+      "name": "Neighborhood recommendation",
+      "input": "Quais são os melhores bairros para morar em São Paulo?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "Os melhores bairros para morar em São Paulo incluem: Jardim Paulista, Jardim das Indústrias, Jardim das Oliveiras e Jardim das Bandeiras."
+    },
+    {
+      "name": "Legal process",
+      "input": "Como funciona o processo de escritura de um imóvel?",
+      "expected_language": "pt-br",
+      "expected_emoji": true,
+      "expected_answer": "O processo de escritura de um imóvel envolve a transferência de propriedade de um imóvel de um proprietário para outro, através de um contrato de compra e venda."
+    }
+  ]
+} 

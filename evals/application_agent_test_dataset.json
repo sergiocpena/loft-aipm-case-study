@@ -1,0 +1,115 @@
+{
+  "test_cases": [
+    {
+      "name": "Complete application - all fields provided",
+      "input": "Quero solicitar um financiamento para um apartamento em São Paulo. Meu nome é João Silva, CPF 123.456.789-00, nascido em 15/05/1985, renda mensal de R$ 8.000, sou casado, pessoa física, o imóvel custa R$ 500.000 e fica em São Paulo, SP.",
+      "expected_fields": {
+        "full_name": "João Silva",
+        "cpf_number": "123.456.789-00",
+        "date_of_birth": "15/05/1985",
+        "monthly_income": 8000,
+        "marital_status": "casado",
+        "person_type": "física",
+        "property_value": 500000,
+        "state": "SP",
+        "city": "São Paulo"
+      }
+    },
+    {
+      "name": "Partial information - agent should ask for missing fields",
+      "input": "Quero financiar um imóvel. Meu nome é Maria Santos e ganho R$ 6.500 por mês.",
+      "missing_fields": [
+        "cpf_number",
+        "date_of_birth",
+        "marital_status",
+        "person_type",
+        "property_value",
+        "state",
+        "city"
+      ],
+      "follow_up_inputs": [
+        {"user": "Meu CPF é 987.654.321-00", "field": "cpf_number"},
+        {"user": "Nasci em 22/11/1990", "field": "date_of_birth"},
+        {"user": "Sou solteira", "field": "marital_status"},
+        {"user": "Pessoa física", "field": "person_type"},
+        {"user": "O imóvel custa R$ 350.000", "field": "property_value"},
+        {"user": "Fica no Rio de Janeiro, RJ", "field": "state", "field2": "city"}
+      ]
+    },
+    {
+      "name": "Corporate application",
+      "input": "Preciso financiar um imóvel comercial para minha empresa. Sou pessoa jurídica, o CNPJ é 12.345.678/0001-90, a empresa se chama Tech Solutions, faturamento mensal de R$ 50.000, o imóvel custa R$ 1.200.000 e fica em Belo Horizonte, MG.",
+      "expected_fields": {
+        "full_name": "Tech Solutions",
+        "cpf_number": "12.345.678/0001-90",
+        "monthly_income": 50000,
+        "person_type": "jurídica",
+        "property_value": 1200000,
+        "state": "MG",
+        "city": "Belo Horizonte"
+      },
+      "missing_fields": [
+        "date_of_birth",
+        "marital_status"
+      ]
+    },
+    {
+      "name": "Ambiguous information - agent should clarify",
+      "input": "Quero financiar um imóvel de 400 mil",
+      "missing_fields": [
+        "full_name",
+        "cpf_number",
+        "date_of_birth",
+        "monthly_income",
+        "marital_status",
+        "person_type",
+        "state",
+        "city"
+      ]
+    },
+    {
+      "name": "Invalid data - agent should validate",
+      "input": "Quero financiar um imóvel. Meu CPF é 123.456, nasci ontem, ganho R$ -5000 por mês",
+      "invalid_fields": [
+        "cpf_number",
+        "date_of_birth",
+        "monthly_income"
+      ]
+    },
+    {
+      "name": "Multi-turn conversation",
+      "conversation": [
+        {"role": "user", "content": "Como faço para dar entrada em um financiamento?"},
+        {"role": "assistant", "content": "Para dar entrada em um financiamento imobiliário, preciso coletar algumas informações. Poderia me informar seu nome completo?"},
+        {"role": "user", "content": "Carlos Eduardo Mendes"},
+        {"role": "assistant", "content": "Obrigado, Carlos. Agora preciso do seu CPF, por favor."},
+        {"role": "user", "content": "111.222.333-44"},
+        {"role": "assistant", "content": "Perfeito. Qual é a sua data de nascimento?"},
+        {"role": "user", "content": "03/08/1978"},
+        {"role": "assistant", "content": "Obrigado. Qual é a sua renda mensal aproximada?"},
+        {"role": "user", "content": "R$ 12.500"},
+        {"role": "assistant", "content": "Ótimo. Qual é o seu estado civil?"},
+        {"role": "user", "content": "Divorciado"},
+        {"role": "assistant", "content": "Entendi. Você está aplicando como pessoa física ou jurídica?"},
+        {"role": "user", "content": "Pessoa física"},
+        {"role": "assistant", "content": "Perfeito. Qual é o valor do imóvel que você deseja financiar?"},
+        {"role": "user", "content": "R$ 750.000"},
+        {"role": "assistant", "content": "Quase terminando. Em qual estado fica o imóvel?"},
+        {"role": "user", "content": "Santa Catarina"},
+        {"role": "assistant", "content": "E em qual cidade?"},
+        {"role": "user", "content": "Florianópolis"}
+      ],
+      "expected_fields": {
+        "full_name": "Carlos Eduardo Mendes",
+        "cpf_number": "111.222.333-44",
+        "date_of_birth": "03/08/1978",
+        "monthly_income": 12500,
+        "marital_status": "divorciado",
+        "person_type": "física",
+        "property_value": 750000,
+        "state": "Santa Catarina",
+        "city": "Florianópolis"
+      }
+    }
+  ]
+} 

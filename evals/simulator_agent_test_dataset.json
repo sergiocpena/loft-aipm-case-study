@@ -1,0 +1,88 @@
+{
+  "test_cases": [
+    {
+      "name": "Complete simulation request - all fields provided",
+      "input": "Quero simular um financiamento para um imóvel de R$ 450.000 em São Paulo, SP. Sou pessoa física.",
+      "expected_fields": {
+        "person_type": "física",
+        "property_value": 450000,
+        "state": "SP",
+        "city": "São Paulo"
+      }
+    },
+    {
+      "name": "Partial information - missing property value",
+      "input": "Quero simular um financiamento para um imóvel em Belo Horizonte, MG. Sou pessoa física.",
+      "missing_fields": ["property_value"],
+      "provided_fields": {
+        "person_type": "física",
+        "state": "MG",
+        "city": "Belo Horizonte"
+      }
+    },
+    {
+      "name": "Partial information - missing location",
+      "input": "Quero simular um financiamento para um imóvel de R$ 300.000. Sou pessoa jurídica.",
+      "missing_fields": ["state", "city"],
+      "provided_fields": {
+        "person_type": "jurídica",
+        "property_value": 300000
+      }
+    },
+    {
+      "name": "Partial information - missing person type",
+      "input": "Quero simular um financiamento para um imóvel de R$ 600.000 no Rio de Janeiro, RJ.",
+      "missing_fields": ["person_type"],
+      "provided_fields": {
+        "property_value": 600000,
+        "state": "RJ",
+        "city": "Rio de Janeiro"
+      }
+    },
+    {
+      "name": "Minimal information",
+      "input": "Quero fazer uma simulação de financiamento.",
+      "missing_fields": ["person_type", "property_value", "state", "city"]
+    },
+    {
+      "name": "Corporate simulation",
+      "input": "Preciso simular um financiamento para minha empresa. O imóvel custa R$ 1.500.000 e fica em Curitiba, PR. Sou pessoa jurídica.",
+      "expected_fields": {
+        "person_type": "jurídica",
+        "property_value": 1500000,
+        "state": "PR",
+        "city": "Curitiba"
+      }
+    },
+    {
+      "name": "Different value formats",
+      "input": "Quero simular um financiamento para um imóvel que custa 750 mil reais em Florianópolis, SC. Sou pessoa física.",
+      "expected_fields": {
+        "person_type": "física",
+        "property_value": 750000,
+        "state": "SC",
+        "city": "Florianópolis"
+      }
+    },
+    {
+      "name": "Multi-turn conversation",
+      "conversation": [
+        {"role": "user", "content": "Quero simular um financiamento"},
+        {"role": "assistant", "content": "Claro, vou ajudar você a simular um financiamento imobiliário. Para começar, você está aplicando como pessoa física ou jurídica?"},
+        {"role": "user", "content": "Pessoa física"},
+        {"role": "assistant", "content": "Ótimo. Qual é o valor do imóvel que você deseja financiar?"},
+        {"role": "user", "content": "R$ 850.000"},
+        {"role": "assistant", "content": "Entendi. Em qual estado o imóvel está localizado?"},
+        {"role": "user", "content": "Minas Gerais"},
+        {"role": "assistant", "content": "E em qual cidade de Minas Gerais?"},
+        {"role": "user", "content": "Belo Horizonte"}
+      ],
+      "expected_fields": {
+        "person_type": "física",
+        "property_value": 850000,
+        "state": "Minas Gerais",
+        "city": "Belo Horizonte"
+      }
+    }
+  ]
+} 
