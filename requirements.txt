@@ -4,3 +4,4 @@ python-dotenv
 gunicorn
 openai
 openai-agents
+requests>=2.25.1

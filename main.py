@@ -20,8 +20,27 @@ from ai_agents.application.application_agent import application_agent
 from ai_agents.questions.questions_agent import questions_agent
 from ai_agents.triage.triage_agent import triage_agent
 
-# Initialize Flask app
-app = Flask(__name__)
+# Add these imports at the top of your file
+from utils.ping_service import init_ping_service
+from routes.health import health_bp
+
+def create_app():
+    app = Flask(__name__)
+    
+    # Register the health check blueprint
+    app.register_blueprint(health_bp)
+    
+    # Initialize the ping service when the app starts
+    @app.before_serving  # or @app.before_first_request for Flask 1.x
+    def start_ping_service():
+        init_ping_service(interval_minutes=15)
+    
+    # Other app configuration...
+    
+    return app
+
+# Create the app
+app = create_app()
 
 # Load environment variables from .env file
 load_dotenv()
@@ -108,6 +127,6 @@ def receive_whatsapp_message():
     
     return Response(str(resp), mimetype='text/xml')
 
+# Run the app if this file is executed directly
 if __name__ == '__main__':
-    # Run the Flask app
     app.run(debug=True)
